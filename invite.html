@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Opening Invitation</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .container {
+            padding: 50px;
+        }
+        .button {
+            background-color: #ff5733;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            margin: 10px;
+        }
+        .button:hover {
+            background-color: #ff2e00;
+            transform: scale(1.05);
+        }
+        #invitation {
+            display: none;
+            opacity: 0;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .banner {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-bottom: 5px solid #ff5733;
+        }
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: url('https://source.unsplash.com/1600x900/?celebration,lights') no-repeat center center/cover;
+            animation: moveBackground 10s infinite alternate ease-in-out;
+        }
+        @keyframes moveBackground {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles"></div>
+    <img src="https://source.unsplash.com/1600x400/?mobile,shop" alt="Grand Opening Banner" class="banner">
+    <div class="container">
+        <button class="button" onclick="showInvitation()">📢 Click for Grand Opening Invitation 📢</button>
+        <div id="invitation">
+            <h2>📢 Grand Opening Invitation 📢</h2>
+            <p>We are thrilled to invite you to the grand opening of <strong>ANISH MOBICARE</strong>—your new one-stop destination for the latest mobile phones and accessories! 🎉</p>
+            <p>Come and explore our exclusive collection, amazing offers, and top-notch customer service. Your presence will make our celebration even more special!</p>
+            <p>📍 <strong>Location:</strong> North Bazar, New Market</p>
+            <p>📞 <strong>Contact:</strong> 9064552437</p>
+            <p>📅 <strong>Date:</strong> 28th February 2025</p>
+            <p>⏰ <strong>Time:</strong> 4:00 PM</p>
+            <p>Join us as we embark on this exciting journey! See you there! 🚀✨</p>
+            <button class="button" onclick="shareOnWhatsApp()">📲 Share on WhatsApp</button>
+        </div>
+    </div>
+    <script>
+        function showInvitation() {
+            var invitation = document.getElementById("invitation");
+            invitation.style.display = "block";
+            setTimeout(() => {
+                invitation.style.opacity = "1";
+            }, 100);
+        }
+        function shareOnWhatsApp() {
+            var message = encodeURIComponent("📢 Grand Opening Invitation 📢\n\nWe are thrilled to invite you to the grand opening of ANISH MOBICARE—your new one-stop destination for the latest mobile phones and accessories! 🎉\n\n📍 Location: North Bazar, New Market\n📞 Contact: 9064552437\n📅 Date: 28th February 2025\n⏰ Time: 4:00 PM\n\nJoin us as we embark on this exciting journey! See you there! 🚀✨");
+            window.open("https://api.whatsapp.com/send?text=" + message, "_blank");
+        }
+    </script>
+</body>
+</html>
